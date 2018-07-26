@@ -10,8 +10,5 @@ Components list:
   - Select
 - views:
   - Block
-  - Message
-  - Text
-- containers:
   - Container
-  - Layout
+  - Text
