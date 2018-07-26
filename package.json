@@ -21,5 +21,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/react-ui-kit/native/issues"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-native": "^0.56.0",
+    "react-native-modal-dropdown": "^0.6.2"
   }
 }
