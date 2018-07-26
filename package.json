@@ -1,6 +1,6 @@
 {
   "name": "react-ui-kit-native",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Native components based on React UI Kit",
   "homepage": "https://native.react-ui-kit.com",
   "main": "index.js",
@@ -23,8 +23,14 @@
     "url": "https://github.com/react-ui-kit/native/issues"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-native": "^0.56.0",
     "react-native-modal-dropdown": "^0.6.2"
+  },
+  "devDependencies": {
+    "react": "^16.4.1",
+    "react-native": "^0.56.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   }
 }
