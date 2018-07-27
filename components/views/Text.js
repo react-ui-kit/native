@@ -1,15 +1,17 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import specs from '../constants';
+import React from 'react'
+import { Text, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
-class TextBlock extends React.Component {
+import * as specs from '../../constants'
+
+class TextBlock extends React.PureComponent {
   render() {
     const {
-      center, left, right, bold, h1, h2, h3, h4, h5,size,
+      center, children, left, right, bold, h1, h2, h3, h4, h5, size,
       link, primary, secondary, tertiary,
       white, black, warning, error, info, success,
       style, ...props
-    } = this.props;
+    } = this.props
 
     const textStyles = [
       styles.baseText,
@@ -34,14 +36,39 @@ class TextBlock extends React.Component {
       success ? styles.success : null,
       size ? { fontSize: size } : null,
       style,
-    ];
+    ]
 
     return (
       <Text style={textStyles} {...props}>
-        {this.props.children}
+        {children}
       </Text>
-    );
+    )
   }
+}
+
+TextBlock.propTypes = {
+  black: PropTypes.bool,
+  bold: PropTypes.bool,
+  center: PropTypes.bool,
+  error: PropTypes.bool,
+  h1: PropTypes.bool,
+  h2: PropTypes.bool,
+  h3: PropTypes.bool,
+  h4: PropTypes.bool,
+  h5: PropTypes.bool,
+  info: PropTypes.bool,
+  left: PropTypes.bool,
+  link: PropTypes.bool,
+  primary: PropTypes.bool,
+  right: PropTypes.bool,
+  secondary: PropTypes.bool,
+  size: PropTypes.bool,
+  style: Text.propTypes.style,
+  children: Text.propTypes.children,
+  success: PropTypes.bool,
+  tertiary: PropTypes.bool,
+  warning: PropTypes.bool,
+  white: PropTypes.bool,
 }
 
 TextBlock.defaultProps = {
@@ -66,9 +93,10 @@ TextBlock.defaultProps = {
   tertiary: false,
   warning: false,
   white: false,
+  children: null,
 }
 
-export default TextBlock;
+export default TextBlock
 
 const styles = StyleSheet.create({
   baseText: {
@@ -78,14 +106,14 @@ const styles = StyleSheet.create({
   },
   left: {
     flex: 1,
-    textAlign: 'left'
+    textAlign: 'left',
   },
   right: {
     flex: 1,
-    textAlign: 'right'
+    textAlign: 'right',
   },
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   bold: {
     fontWeight: 'bold',
@@ -106,33 +134,33 @@ const styles = StyleSheet.create({
     fontSize: specs.FONT_SIZE_H5,
   },
   primary: {
-    color: specs.COLOR_PRIMARY
+    color: specs.COLOR_PRIMARY,
   },
   secondary: {
-    color: specs.COLOR_SECONDARY
+    color: specs.COLOR_SECONDARY,
   },
   tertiary: {
-    color: specs.COLOR_TERTIARY
+    color: specs.COLOR_TERTIARY,
   },
   link: {
-    color: specs.LINK_COLOR
+    color: specs.LINK_COLOR,
   },
   white: {
-    color: specs.COLOR_WHITE
+    color: specs.COLOR_WHITE,
   },
   black: {
-    color: specs.COLOR_BLACK
+    color: specs.COLOR_BLACK,
   },
   warning: {
-    color: specs.COLOR_WARNING
+    color: specs.COLOR_WARNING,
   },
   error: {
-    color: specs.COLOR_ERROR
+    color: specs.COLOR_ERROR,
   },
   info: {
-    color: specs.COLOR_INFO
+    color: specs.COLOR_INFO,
   },
   success: {
-    color: specs.COLOR_SUCCESS
+    color: specs.COLOR_SUCCESS,
   },
-});
+})
