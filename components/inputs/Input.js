@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     backgroundColor: specs.INPUT_BACKGROUND,
     borderRadius: specs.INPUT_RADIUS,
     color: specs.COLOR_WHITE,
-    fontFamily: specs.FONT_NAME,
     fontSize: specs.FONT_SIZE,
     height: specs.INPUT_HEIGHT,
     marginBottom: specs.MARGIN,

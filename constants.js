@@ -30,7 +30,7 @@ export const SHADOW_COLOR = COLOR_SECONDARY;
 
 // global sizes
 export const BASE_SIZE = 14;
-export const FONT_NAME = `Lato`;
+export const FONT_NAME = undefined;
 export const FONT_SIZE = BASE_SIZE;
 export const FONT_SIZE_H1 = FONT_SIZE * 2;
 export const FONT_SIZE_H2 = FONT_SIZE * 1.71;

@@ -101,7 +101,6 @@ export default TextBlock
 const styles = StyleSheet.create({
   baseText: {
     color: specs.TEXT_COLOR,
-    fontFamily: specs.FONT_NAME,
     fontSize: specs.FONT_SIZE,
   },
   left: {

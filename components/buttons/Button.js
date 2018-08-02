@@ -11,9 +11,8 @@ class Button extends React.Component {
     } = this.props
     const text = label || title || null
     const textStyle = [
-      { fontFamily: specs.FONT_NAME },
       basic ? styles.basicText : null,
-      bold ? { fontWeight: 'bold', fontFamily: `${specs.FONT_NAME}-Bold` } : null,
+      bold ? { fontWeight: 'bold' } : null,
       color ? { color } : { color: specs.COLOR_WHITE },
       inverted ? styles.basicText : null,
       size ? { fontSize: size } : { fontSize: specs.BUTTON_FONT_SIZE },
