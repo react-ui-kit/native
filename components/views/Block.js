@@ -1,15 +1,27 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 
-import * as specs from '../../constants'
+import * as specs from '../../constants';
 
 class Block extends React.PureComponent {
   render() {
     const {
-      center, middle, inline, spaced, children, column, flex,
-      margin, bottom, top, left, right, shadow, style,
-    } = this.props
+      center,
+      middle,
+      inline,
+      spaced,
+      children,
+      column,
+      flex,
+      margin,
+      bottom,
+      top,
+      left,
+      right,
+      shadow,
+      style,
+    } = this.props;
     const viewStyle = [
       styles.block,
       styles.row,
@@ -26,13 +38,9 @@ class Block extends React.PureComponent {
       left ? styles.left : null,
       right ? styles.right : null,
       style,
-    ]
+    ];
 
-    return (
-      <View style={viewStyle}>
-        {children}
-      </View>
-    )
+    return <View style={viewStyle}>{children}</View>;
   }
 }
 
@@ -50,8 +58,8 @@ Block.propTypes = {
   spaced: PropTypes.bool,
   top: PropTypes.bool,
   style: View.propTypes.style,
-  children: PropTypes.children,
-}
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+};
 
 Block.defaultProps = {
   bottom: false,
@@ -68,13 +76,12 @@ Block.defaultProps = {
   top: false,
   style: {},
   children: null,
-}
+};
 
-export default Block
+export default Block;
 
 const styles = StyleSheet.create({
-  block: {
-  },
+  block: {},
   row: {
     flexDirection: 'row',
   },
@@ -114,4 +121,4 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 1,
   },
-})
+});

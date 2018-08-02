@@ -1,14 +1,12 @@
-import React from 'react'
-import { TextInput, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { TextInput, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-import * as specs from '../../constants'
+import * as specs from '../../constants';
 
 class Input extends React.PureComponent {
   render() {
-    const {
-      style, placeholderTextColor, multiline, ...rest
-    } = this.props
+    const { style, placeholderTextColor, multiline, ...rest } = this.props;
 
     if (multiline) {
       return (
@@ -19,7 +17,7 @@ class Input extends React.PureComponent {
           style={[styles.input, { height: 'auto' }, style]}
           underlineColorAndroid="transparent"
         />
-      )
+      );
     }
 
     return (
@@ -29,7 +27,7 @@ class Input extends React.PureComponent {
         placeholderTextColor={placeholderTextColor}
         underlineColorAndroid="transparent"
       />
-    )
+    );
   }
 }
 
@@ -37,15 +35,15 @@ Input.propTypes = {
   placeholderTextColor: PropTypes.string,
   multiline: PropTypes.bool,
   style: TextInput.propTypes.style,
-}
+};
 
 Input.defaultProps = {
   placeholderTextColor: specs.PLACEHOLDER_COLOR,
   multiline: false,
   style: {},
-}
+};
 
-export default Input
+export default Input;
 
 const styles = StyleSheet.create({
   input: {
@@ -62,4 +60,4 @@ const styles = StyleSheet.create({
     textShadowColor: 'transparent',
     width: specs.WIDTH * 0.8, // 80%
   },
-})
+});

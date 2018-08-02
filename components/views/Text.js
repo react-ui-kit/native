@@ -1,17 +1,36 @@
-import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-import * as specs from '../../constants'
+import * as specs from '../../constants';
 
 class TextBlock extends React.PureComponent {
   render() {
     const {
-      center, children, left, right, bold, h1, h2, h3, h4, h5, size,
-      link, primary, secondary, tertiary,
-      white, black, warning, error, info, success,
-      style, ...props
-    } = this.props
+      center,
+      children,
+      left,
+      right,
+      bold,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      size,
+      link,
+      primary,
+      secondary,
+      tertiary,
+      white,
+      black,
+      warning,
+      error,
+      info,
+      success,
+      style,
+      ...props
+    } = this.props;
 
     const textStyles = [
       styles.baseText,
@@ -36,13 +55,13 @@ class TextBlock extends React.PureComponent {
       success ? styles.success : null,
       size ? { fontSize: size } : null,
       style,
-    ]
+    ];
 
     return (
       <Text style={textStyles} {...props}>
         {children}
       </Text>
-    )
+    );
   }
 }
 
@@ -64,12 +83,12 @@ TextBlock.propTypes = {
   secondary: PropTypes.bool,
   size: PropTypes.bool,
   style: Text.propTypes.style,
-  children: PropTypes.element,
   success: PropTypes.bool,
   tertiary: PropTypes.bool,
   warning: PropTypes.bool,
   white: PropTypes.bool,
-}
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+};
 
 TextBlock.defaultProps = {
   black: false,
@@ -94,9 +113,9 @@ TextBlock.defaultProps = {
   warning: false,
   white: false,
   children: null,
-}
+};
 
-export default TextBlock
+export default TextBlock;
 
 const styles = StyleSheet.create({
   baseText: {
@@ -162,4 +181,4 @@ const styles = StyleSheet.create({
   success: {
     color: specs.COLOR_SUCCESS,
   },
-})
+});
