@@ -34,7 +34,7 @@ class Container extends React.PureComponent {
 }
 
 Container.propTypes = {
-  children: View.propTypes.children,
+  children: PropTypes.element,
   keyboard: PropTypes.bool,
   style: View.propTypes.style,
 }

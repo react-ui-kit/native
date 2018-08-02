@@ -50,7 +50,7 @@ Block.propTypes = {
   spaced: PropTypes.bool,
   top: PropTypes.bool,
   style: View.propTypes.style,
-  children: View.propTypes.children,
+  children: PropTypes.children,
 }
 
 Block.defaultProps = {

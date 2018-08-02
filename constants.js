@@ -2,9 +2,9 @@ import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 // global colors
-export const COLOR_PRIMARY = '#EC008C';
-export const COLOR_SECONDARY = '#464E5B';
-export const COLOR_TERTIARY = '#F6F6F8';
+export const COLOR_PRIMARY = '#323642';
+export const COLOR_SECONDARY = '#81bd4a';
+export const COLOR_TERTIARY = '#cfcdc4';
 
 export const COLOR_WHITE = '#FFFFFF';
 export const COLOR_BLACK = '#000000';
@@ -17,13 +17,13 @@ export const COLOR_SUCCESS = '#8A9B0F';
 
 export const HEADER_BACKGROUND = '#2A2C2E';
 export const FOOTER_BACKGROUND = HEADER_BACKGROUND;
-export const TEXT_COLOR = COLOR_WHITE;
+export const TEXT_COLOR = COLOR_PRIMARY;
 export const LINK_COLOR = COLOR_PRIMARY;
-export const PLACEHOLDER_COLOR = COLOR_WHITE;
+export const PLACEHOLDER_COLOR = COLOR_PRIMARY;
 export const DIVIDER_COLOR = `rgba(0, 0, 0, 0.3)`;
 export const BACKGROUND_COLOR = COLOR_SECONDARY;
 export const OVERLAY_BACKGROUND = `rgba(35, 35, 35, 0.70)` // #232323
-export const INPUT_BACKGROUND = 'rgba(155, 155, 155, 0.4)'; // #9B9B9B -> rgb(155, 155, 155)
+export const INPUT_BACKGROUND = COLOR_TERTIARY
 export const BUTTON_BACKGROUND = COLOR_PRIMARY;
 export const BUTTON_DISABLED = COLOR_SECONDARY;
 export const SHADOW_COLOR = COLOR_SECONDARY;

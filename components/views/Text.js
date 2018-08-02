@@ -64,7 +64,7 @@ TextBlock.propTypes = {
   secondary: PropTypes.bool,
   size: PropTypes.bool,
   style: Text.propTypes.style,
-  children: Text.propTypes.children,
+  children: PropTypes.element,
   success: PropTypes.bool,
   tertiary: PropTypes.bool,
   warning: PropTypes.bool,
