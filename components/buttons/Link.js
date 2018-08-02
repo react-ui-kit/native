@@ -47,7 +47,6 @@ export default Link
 
 const styles = StyleSheet.create({
   link: {
-    fontFamily: specs.FONT_NAME,
     height: specs.BUTTON_HEIGHT,
     paddingVertical: specs.BUTTON_PADDING,
   },
