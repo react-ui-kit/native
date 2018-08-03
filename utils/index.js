@@ -1,6 +1,6 @@
 import Api from './api';
 import Storage from './storage';
-import Constants from './constants';
+import * as Constants from './constants';
 
 export default {
   api: Api,
