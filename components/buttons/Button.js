@@ -63,14 +63,14 @@ Button.defaultProps = {
   bold: false,
   border: false,
   disabled: false,
-  color: specs.COLOR_WHITE,
+  color: specs.COLOR_PRIMARY,
   full: false,
-  icon: false,
+  icon: null,
   inverted: false,
-  label: false,
-  size: 0,
+  label: null,
+  size: specs.FONT_SIZE,
   style: {},
-  title: false,
+  title: null,
 };
 
 export default Button;
