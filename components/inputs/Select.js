@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import Dropdown from 'react-native-modal-dropdown';
 
-import * as specs from '../../constants';
+import * as specs from '../../utils/constants';
 
 class Select extends React.PureComponent {
   render() {

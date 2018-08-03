@@ -2,7 +2,7 @@ import React from 'react';
 import { Linking, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import * as specs from '../../constants';
+import * as specs from '../../utils/constants';
 
 class Link extends React.Component {
   navigateURL = () => {

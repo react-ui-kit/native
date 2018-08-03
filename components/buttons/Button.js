@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import * as specs from '../../constants';
+import * as specs from '../../utils/constants';
 
 class Button extends React.Component {
   renderContent = () => {
