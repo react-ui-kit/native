@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     width: specs.WIDTH * 0.8, // 80%
   },
   dropdown: {
-    height: 'auto',
     marginTop: specs.MARGIN,
     width: specs.WIDTH * 0.8,
   },

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as specs from '../../constants';
 
 class Button extends React.Component {
   renderContent = () => {
-    const { color, label, title, basic, inverted, size, bold, icon } = this.props;
+    const { color, label, title, basic, inverted, size, bold, icon, textStyle } = this.props;
     const text = label || title || null;
-    const textStyle = [
+    const textStyles = [
       basic ? styles.basicText : null,
       bold ? { fontWeight: 'bold' } : null,
       color ? { color } : { color: specs.COLOR_WHITE },
@@ -18,7 +18,7 @@ class Button extends React.Component {
 
     if (icon && !text) return icon;
 
-    return <Text style={textStyle}>{text}</Text>;
+    return <Text style={textStyles}>{text}</Text>;
   };
 
   render() {
@@ -51,10 +51,11 @@ Button.propTypes = {
   full: PropTypes.bool,
   icon: PropTypes.bool,
   inverted: PropTypes.bool,
-  label: PropTypes.bool,
+  label: PropTypes.string,
   size: PropTypes.number,
-  style: TouchableOpacity.propTypes.style,
-  title: PropTypes.bool,
+  style: View.propTypes.style,
+  textStyle: Text.propTypes.style,
+  title: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -81,8 +82,6 @@ const styles = StyleSheet.create({
     borderRadius: specs.BUTTON_RADIUS,
     height: specs.BUTTON_HEIGHT,
     justifyContent: 'center',
-    marginBottom: specs.MARGIN,
-    marginTop: specs.MARGIN,
     padding: specs.BUTTON_PADDING,
     width: specs.WIDTH * 0.5, // 50%
   },
