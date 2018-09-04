@@ -14,6 +14,7 @@ class Button extends React.Component {
       color ? { color } : { color: specs.COLOR_WHITE },
       inverted ? styles.basicText : null,
       size ? { fontSize: size } : { fontSize: specs.BUTTON_FONT_SIZE },
+      textStyle ? { ...textStyle } : null,
     ];
 
     if (icon && !text) return icon;
