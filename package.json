@@ -5,7 +5,7 @@
   "homepage": "https://native.react-ui-kit.com",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint components/**",
+    "lint": "eslint components/** utils/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

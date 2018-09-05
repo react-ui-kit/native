@@ -6,4 +6,4 @@ export default {
   api: Api,
   storage: Storage,
   constants: Constants,
-}
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+// eslint-disable-next-line
 import Dropdown from 'react-native-modal-dropdown';
 
 import * as specs from '../../utils/constants';

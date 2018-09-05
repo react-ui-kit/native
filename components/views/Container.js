@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line
 import { StyleSheet, View, KeyboardAvoidingView, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 

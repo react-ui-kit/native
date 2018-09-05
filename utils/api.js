@@ -5,7 +5,7 @@ class Api {
     this.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      ...baseHeaders
+      ...baseHeaders,
     };
     this.response = undefined;
   }
@@ -25,41 +25,41 @@ class Api {
   authorization(tokens) {
     if (tokens) {
       this.headers = {
-        ...this.headers, 
-        Authorization: `Bearer ${tokens}`
+        ...this.headers,
+        Authorization: `Bearer ${tokens}`,
       };
     }
   }
 
   body(obj) {
-    return JSON.stringify(obj)
+    return JSON.stringify(obj);
   }
 
   get(url, headers) {
     const fetchUrl = `${this.url}${url}`;
 
     if (headers) {
-      this.headers = {...this.headers, ...headers};
+      this.headers = { ...this.headers, ...headers };
     }
-
+    // eslint-disable-next-line
     return fetch(fetchUrl, {
       method: 'GET',
       headers: this.headers(),
-    })
+    });
   }
 
   post(url, data, headers) {
     const fetchUrl = `${this.url}${url}`;
 
     if (headers) {
-      this.headers = {...this.headers, ...headers};
+      this.headers = { ...this.headers, ...headers };
     }
-
+    // eslint-disable-next-line
     return fetch(fetchUrl, {
       method: 'POST',
       headers: this.headers(),
       body: this.body(data),
-    })
+    });
   }
   // TO DO other methods
 }

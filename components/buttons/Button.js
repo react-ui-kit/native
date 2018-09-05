@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -9,12 +10,12 @@ class Button extends React.Component {
     const { color, label, title, basic, inverted, size, bold, icon, textStyle } = this.props;
     const text = label || title || null;
     const textStyles = [
-      basic ? styles.basicText : null,
-      bold ? { fontWeight: 'bold' } : null,
+      basic && styles.basicText,
+      bold && { fontWeight: 'bold' },
+      inverted && styles.basicText,
+      textStyle && { ...textStyle },
       color ? { color } : { color: specs.COLOR_WHITE },
-      inverted ? styles.basicText : null,
       size ? { fontSize: size } : { fontSize: specs.BUTTON_FONT_SIZE },
-      textStyle ? { ...textStyle } : null,
     ];
 
     if (icon && !text) return icon;
@@ -27,11 +28,11 @@ class Button extends React.Component {
 
     const buttonStyle = [
       styles.button,
-      basic ? styles.basic : null,
-      inverted ? styles.inverted : null,
-      border ? styles.border : null,
-      full ? styles.full : null,
-      disabled ? styles.disabled : null,
+      basic && styles.basic,
+      inverted && styles.inverted,
+      border && styles.border,
+      full && styles.full,
+      disabled && styles.disabled,
       style,
     ];
 
