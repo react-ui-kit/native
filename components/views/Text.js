@@ -1,48 +1,67 @@
-import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-import * as specs from '../../constants'
+import * as specs from '../../utils/constants';
 
 class TextBlock extends React.PureComponent {
   render() {
     const {
-      center, children, left, right, bold, h1, h2, h3, h4, h5, size,
-      link, primary, secondary, tertiary,
-      white, black, warning, error, info, success,
-      style, ...props
-    } = this.props
+      center,
+      children,
+      left,
+      right,
+      bold,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      size,
+      link,
+      primary,
+      secondary,
+      tertiary,
+      white,
+      black,
+      warning,
+      error,
+      info,
+      success,
+      style,
+      ...props
+    } = this.props;
 
     const textStyles = [
       styles.baseText,
-      center ? styles.center : null,
-      left ? styles.left : null,
-      right ? styles.right : null,
-      bold ? styles.bold : null,
-      h1 ? styles.h1 : null,
-      h2 ? styles.h2 : null,
-      h3 ? styles.h3 : null,
-      h4 ? styles.h4 : null,
-      h5 ? styles.h5 : null,
-      link ? styles.link : null,
-      primary ? styles.primary : null,
-      secondary ? styles.secondary : null,
-      tertiary ? styles.tertiary : null,
-      white ? styles.white : null,
-      black ? styles.black : null,
-      warning ? styles.warning : null,
-      error ? styles.error : null,
-      info ? styles.info : null,
-      success ? styles.success : null,
-      size ? { fontSize: size } : null,
+      center && styles.center,
+      left && styles.left,
+      right && styles.right,
+      bold && styles.bold,
+      h1 && styles.h1,
+      h2 && styles.h2,
+      h3 && styles.h3,
+      h4 && styles.h4,
+      h5 && styles.h5,
+      link && styles.link,
+      primary && styles.primary,
+      secondary && styles.secondary,
+      tertiary && styles.tertiary,
+      white && styles.white,
+      black && styles.black,
+      warning && styles.warning,
+      error && styles.error,
+      info && styles.info,
+      success && styles.success,
+      size && { fontSize: size },
       style,
-    ]
+    ];
 
     return (
       <Text style={textStyles} {...props}>
         {children}
       </Text>
-    )
+    );
   }
 }
 
@@ -62,14 +81,14 @@ TextBlock.propTypes = {
   primary: PropTypes.bool,
   right: PropTypes.bool,
   secondary: PropTypes.bool,
-  size: PropTypes.bool,
+  size: PropTypes.number,
   style: Text.propTypes.style,
-  children: Text.propTypes.children,
   success: PropTypes.bool,
   tertiary: PropTypes.bool,
   warning: PropTypes.bool,
   white: PropTypes.bool,
-}
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+};
 
 TextBlock.defaultProps = {
   black: false,
@@ -87,16 +106,16 @@ TextBlock.defaultProps = {
   primary: false,
   right: false,
   secondary: false,
-  size: false,
+  size: specs.FONT_SIZE,
   style: {},
   success: false,
   tertiary: false,
   warning: false,
   white: false,
   children: null,
-}
+};
 
-export default TextBlock
+export default TextBlock;
 
 const styles = StyleSheet.create({
   baseText: {
@@ -162,4 +181,4 @@ const styles = StyleSheet.create({
   success: {
     color: specs.COLOR_SUCCESS,
   },
-})
+});

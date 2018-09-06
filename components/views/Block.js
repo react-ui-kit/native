@@ -1,38 +1,46 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 
-import * as specs from '../../constants'
+import * as specs from '../../utils/constants';
 
 class Block extends React.PureComponent {
   render() {
     const {
-      center, middle, inline, spaced, children, column, flex,
-      margin, bottom, top, left, right, shadow, style,
-    } = this.props
+      center,
+      middle,
+      inline,
+      spaced,
+      children,
+      column,
+      flex,
+      margin,
+      bottom,
+      top,
+      left,
+      right,
+      shadow,
+      style,
+    } = this.props;
     const viewStyle = [
       styles.block,
       styles.row,
-      flex ? { flex: flex === true ? 1 : flex } : null,
-      spaced ? styles.spaced : null,
-      column ? styles.column : null,
-      center ? styles.center : null,
-      middle ? styles.middle : null,
-      inline ? styles.inline : null,
-      margin ? styles.margin : null,
-      bottom ? styles.bottom : null,
-      shadow ? styles.shadow : null,
-      top ? styles.top : null,
-      left ? styles.left : null,
-      right ? styles.right : null,
+      flex && { flex: flex === true ? 1 : flex },
+      spaced && styles.spaced,
+      column && styles.column,
+      center && styles.center,
+      middle && styles.middle,
+      inline && styles.inline,
+      margin && styles.margin,
+      bottom && styles.bottom,
+      shadow && styles.shadow,
+      top && styles.top,
+      left && styles.left,
+      right && styles.right,
       style,
-    ]
+    ];
 
-    return (
-      <View style={viewStyle}>
-        {children}
-      </View>
-    )
+    return <View style={viewStyle}>{children}</View>;
   }
 }
 
@@ -40,7 +48,7 @@ Block.propTypes = {
   bottom: PropTypes.bool,
   center: PropTypes.bool,
   column: PropTypes.bool,
-  flex: PropTypes.bool,
+  flex: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   inline: PropTypes.bool,
   left: PropTypes.bool,
   margin: PropTypes.bool,
@@ -50,8 +58,8 @@ Block.propTypes = {
   spaced: PropTypes.bool,
   top: PropTypes.bool,
   style: View.propTypes.style,
-  children: View.propTypes.children,
-}
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+};
 
 Block.defaultProps = {
   bottom: false,
@@ -68,13 +76,12 @@ Block.defaultProps = {
   top: false,
   style: {},
   children: null,
-}
+};
 
-export default Block
+export default Block;
 
 const styles = StyleSheet.create({
-  block: {
-  },
+  block: {},
   row: {
     flexDirection: 'row',
   },
@@ -108,10 +115,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   shadow: {
-    shadowColor: specs.COLOR_SECONDARY, // `#A7A5A5`,
+    shadowColor: specs.COLOR_SECONDARY,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.2,
     shadowRadius: 1,
     elevation: 1,
   },
-})
+});
