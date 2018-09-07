@@ -30,7 +30,7 @@ Examples screens:
 - [ ] Camera
 
 ### To do
-[ ] export component styles as `componentStyle` and import
+- [ ] export component styles as `componentStyle` and import
 
 ### Requests
 Have an idea for a new component or Screen? Just contact us at contact@react-ui-kit.com and will add it to our list.
