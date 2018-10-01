@@ -17,7 +17,7 @@
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-navigation": "^2.9.3",
-    "react-ui-kit-native": "^0.0.15"
+    "react-ui-kit-native": "^0.0.16"
   },
   "devDependencies": {
     "jest-expo": "29.0.0"
