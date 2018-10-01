@@ -1,124 +1,113 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import * as specs from '../../utils/constants';
+const BASE_SIZE = 14;
+const COLOR_BACKGROUND = '#FFFFFF';
+const COLOR_DEFAULT = '#808080';
 
-class Block extends React.PureComponent {
+export default class Block extends Component {
+  static defaultProps = {
+    row: false,
+    flex: false,
+    center: false,
+    middle: false,
+    top: false,
+    bottom: false,
+    right: false,
+    left: false,
+    card: false,
+    shadow: false,
+    space: false,
+    fluid: false,
+    height: false,
+    width: false,
+    shadowColor: false,
+  }
+
   render() {
     const {
+      row,
+      flex,
       center,
       middle,
-      inline,
-      spaced,
-      children,
-      column,
-      flex,
-      margin,
-      bottom,
       top,
-      left,
+      bottom,
       right,
+      left,
       shadow,
+      space,
+      fluid,
+      height,
+      shadowColor,
+      card,
+      width,
+      children,
       style,
+      ...props
     } = this.props;
-    const viewStyle = [
+
+    const styleBlock = [
       styles.block,
-      styles.row,
+      row && styles.row,
       flex && { flex: flex === true ? 1 : flex },
-      spaced && styles.spaced,
-      column && styles.column,
       center && styles.center,
       middle && styles.middle,
-      inline && styles.inline,
-      margin && styles.margin,
-      bottom && styles.bottom,
-      shadow && styles.shadow,
       top && styles.top,
-      left && styles.left,
+      bottom && styles.bottom,
       right && styles.right,
+      left && styles.left,
+      space && { justifyContent: `space-${space}` },
+      shadow && styles.shadow,
+      fluid && styles.fluid,
+      card && styles.card,
+      height && { height },
+      width && { width },
+      shadowColor && { shadowColor },
       style,
     ];
 
-    return <View style={viewStyle}>{children}</View>;
+    return (
+      <View style={styleBlock} {...props}>
+        {children}
+      </View>
+    );
   }
 }
 
-Block.propTypes = {
-  bottom: PropTypes.bool,
-  center: PropTypes.bool,
-  column: PropTypes.bool,
-  flex: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-  inline: PropTypes.bool,
-  left: PropTypes.bool,
-  margin: PropTypes.bool,
-  middle: PropTypes.bool,
-  right: PropTypes.bool,
-  shadow: PropTypes.bool,
-  spaced: PropTypes.bool,
-  top: PropTypes.bool,
-  style: View.propTypes.style,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-};
-
-Block.defaultProps = {
-  bottom: false,
-  center: false,
-  column: false,
-  flex: false,
-  inline: false,
-  left: false,
-  margin: false,
-  middle: false,
-  right: false,
-  shadow: false,
-  spaced: false,
-  top: false,
-  style: {},
-  children: null,
-};
-
-export default Block;
-
 const styles = StyleSheet.create({
-  block: {},
+  block: {
+    flexDirection: 'column',
+  },
   row: {
     flexDirection: 'row',
   },
-  column: {
-    flexDirection: 'column',
-  },
-  margin: {
-    marginVertical: specs.MARGIN,
-  },
-  bottom: {
-    bottom: '0%',
-    alignItems: 'flex-end',
-  },
-  center: {
+  middle: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  middle: {
-    justifyContent: 'center',
+  center: {
+    alignSelf: 'center',
   },
   top: {
-    alignItems: 'flex-start',
+    alignSelf: 'flex-start',
   },
-  spaced: {
-    justifyContent: 'space-between',
+  bottom: {
+    alignSelf: 'flex-end',
   },
-  right: {
-    justifyContent: 'flex-end',
-  },
-  left: {
-    justifyContent: 'flex-start',
+  card: {
+    borderRadius: BASE_SIZE * 0.4,
+    borderWidth: BASE_SIZE * 0.05,
+    borderColor: COLOR_DEFAULT,
+    backgroundColor: COLOR_BACKGROUND,
   },
   shadow: {
-    shadowColor: specs.COLOR_SECONDARY,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1,
+    shadowColor: COLOR_DEFAULT,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
     elevation: 1,
+  },
+  fluid: {
+    width: 'auto',
   },
 });
