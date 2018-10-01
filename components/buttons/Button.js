@@ -55,7 +55,7 @@ export default class Button extends Component {
       rounded && styles.rounded,
       basic && styles.basic,
       style,
-    ]
+    ];
 
     const textStyles = [size && { fontSize: size }, basic && { color: COLOR_DEFAULT }, { color }];
 
@@ -72,7 +72,7 @@ export default class Button extends Component {
       <TouchableOpacity {...props} activeOpacity={opacity} style={buttonStyles} disabled={loading}>
         {loading ? loadingContent : buttonContent}
       </TouchableOpacity>
-    )
+    );
   }
 }
 
