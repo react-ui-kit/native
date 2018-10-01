@@ -1,113 +1,109 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { Component } from 'react'
+import { ActivityIndicator, Dimensions, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Icon } from 'expo'
 
+const { width } = Dimensions.get('window')
+
+// let's define some colors
 const BASE_SIZE = 14;
-const COLOR_BACKGROUND = '#FFFFFF';
-const COLOR_DEFAULT = '#808080';
+const COLOR_TEXT = `#FFFFFF`;
+const COLOR_DEFAULT = `#45547e`;
+const COLOR_PRIMARY = `#7CB527`;
+const COLOR_SECONDARY = `#FF3D57`;
+const COLOR_TERTIARY = `#7857A9`;
 
-export default class Block extends Component {
+export default class Button extends Component {
+  // default props for all inline conditions
   static defaultProps = {
-    row: false,
-    flex: false,
-    center: false,
-    middle: false,
-    top: false,
-    bottom: false,
-    right: false,
-    left: false,
-    card: false,
-    shadow: false,
-    space: false,
-    fluid: false,
-    height: false,
-    width: false,
-    shadowColor: false,
+    opacity: 0.8,
+    color: COLOR_TEXT,
+    primary: false,
+    secondary: false,
+    tertiary: false,
+    full: false,
+    rounded: false,
+    basic: false,
+    loading: false,
+    size: BASE_SIZE,
   }
 
   render() {
     const {
-      row,
-      flex,
-      center,
-      middle,
-      top,
-      bottom,
-      right,
-      left,
-      shadow,
-      space,
-      fluid,
-      height,
-      shadowColor,
-      card,
-      width,
-      children,
+      label,
+      opacity,
+      color,
+      primary,
+      secondary,
+      tertiary,
+      full,
+      rounded,
+      basic,
+      size,
+      loading,
+      icon,
+      family,
       style,
       ...props
     } = this.props;
 
-    const styleBlock = [
-      styles.block,
-      row && styles.row,
-      flex && { flex: flex === true ? 1 : flex },
-      center && styles.center,
-      middle && styles.middle,
-      top && styles.top,
-      bottom && styles.bottom,
-      right && styles.right,
-      left && styles.left,
-      space && { justifyContent: `space-${space}` },
-      shadow && styles.shadow,
-      fluid && styles.fluid,
-      card && styles.card,
-      height && { height },
-      width && { width },
-      shadowColor && { shadowColor },
+    const buttonStyles = [
+      styles.button,
+      primary && styles.primary,
+      secondary && styles.secondary,
+      tertiary && styles.tertiary,
+      full && styles.full,
+      rounded && styles.rounded,
+      basic && styles.basic,
       style,
-    ];
+    ]
+
+    const textStyles = [size && { fontSize: size }, basic && { color: COLOR_DEFAULT }, { color }];
+
+    const { [family]: IconFamily } = Icon;
+    const iconContent = icon && IconFamily ? (
+      <IconFamily name={icon} size={size} color={basic ? COLOR_DEFAULT : color}>
+        {label && ` ${label}`}
+      </IconFamily>
+    ) : null;
+    const buttonContent = <Text style={textStyles}>{iconContent || label}</Text>;
+    const loadingContent = <ActivityIndicator size="small" color={COLOR_TEXT} />;
 
     return (
-      <View style={styleBlock} {...props}>
-        {children}
-      </View>
-    );
+      <TouchableOpacity {...props} activeOpacity={opacity} style={buttonStyles} disabled={loading}>
+        {loading ? loadingContent : buttonContent}
+      </TouchableOpacity>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  block: {
-    flexDirection: 'column',
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  middle: {
+  button: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  center: {
-    alignSelf: 'center',
-  },
-  top: {
-    alignSelf: 'flex-start',
-  },
-  bottom: {
-    alignSelf: 'flex-end',
-  },
-  card: {
+    // let's make it fancy :)
+    backgroundColor: COLOR_DEFAULT,
+    paddingHorizontal: BASE_SIZE * 2,
+    paddingVertical: BASE_SIZE * 0.8,
     borderRadius: BASE_SIZE * 0.4,
-    borderWidth: BASE_SIZE * 0.05,
+  },
+  primary: {
+    backgroundColor: COLOR_PRIMARY,
+  },
+  secondary: {
+    backgroundColor: COLOR_SECONDARY,
+  },
+  tertiary: {
+    backgroundColor: COLOR_TERTIARY,
+  },
+  full: {
+    width: width * 0.8, // 80% of the screen/window
+  },
+  rounded: {
+    borderRadius: BASE_SIZE * 2,
+  },
+  basic: {
+    backgroundColor: COLOR_TEXT,
     borderColor: COLOR_DEFAULT,
-    backgroundColor: COLOR_BACKGROUND,
-  },
-  shadow: {
-    shadowColor: COLOR_DEFAULT,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 1,
-  },
-  fluid: {
-    width: 'auto',
-  },
-});
+    borderWidth: 0.6,
+  }
+})

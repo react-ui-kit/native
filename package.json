@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "react-native-modal-dropdown": "^0.6.2",
-    "@expo/samples": "2.1.1",
     "expo": "29.0.0",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",

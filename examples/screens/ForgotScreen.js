@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { Button, Block, Text, Input } from 'react-ui-kit-native';
 
 export default class LoginScreen extends React.Component {
@@ -9,7 +8,7 @@ export default class LoginScreen extends React.Component {
 
   render() {
     return (
-      <Block column flex center middle style={styles.forgot}>
+      <Block column flex center middle>
         <Text size={18}>FORGOT PASSWORD</Text>
         <Input placeholder="Email" />
         <Button full rounded label="RESET PASSWORD" />
@@ -17,10 +16,3 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  forgot: {
-    paddingTop: 15,
-    backgroundColor: '#FFFFFF',
-  }
-});
