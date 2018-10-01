@@ -3,19 +3,19 @@ import React from 'react';
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import * as specs from '../../utils/constants';
+import * as theme from '../../theme';
 
 class Button extends React.Component {
   renderContent = () => {
     const { color, label, title, basic, inverted, size, bold, icon, textStyle } = this.props;
     const text = label || title || null;
     const textStyles = [
-      basic && styles.basicText,
       bold && { fontWeight: 'bold' },
+      color ? { color } : { color: theme.COLOR_WHITE },
+      basic && styles.basicText,
       inverted && styles.basicText,
       textStyle && { ...textStyle },
-      color ? { color } : { color: specs.COLOR_WHITE },
-      size ? { fontSize: size } : { fontSize: specs.BUTTON_FONT_SIZE },
+      size ? { fontSize: size } : { fontSize: theme.BUTTON_FONT_SIZE },
     ];
 
     if (icon && !text) return icon;
@@ -24,7 +24,7 @@ class Button extends React.Component {
   };
 
   render() {
-    const { disabled, basic, inverted, border, full, style, ...props } = this.props;
+    const { disabled, basic, inverted, border, full, style, opacity, rounded, ...props } = this.props;
 
     const buttonStyle = [
       styles.button,
@@ -33,11 +33,12 @@ class Button extends React.Component {
       border && styles.border,
       full && styles.full,
       disabled && styles.disabled,
+      rounded && styles.rounded,
       style,
     ];
 
     return (
-      <TouchableOpacity {...props} disabled={disabled} style={buttonStyle}>
+      <TouchableOpacity {...props} disabled={disabled} activeOpacity={opacity} style={buttonStyle}>
         {this.renderContent()}
       </TouchableOpacity>
     );
@@ -58,6 +59,8 @@ Button.propTypes = {
   style: View.propTypes.style,
   textStyle: Text.propTypes.style,
   title: PropTypes.string,
+  opacity: PropTypes.number,
+  rounded: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -65,14 +68,16 @@ Button.defaultProps = {
   bold: false,
   border: false,
   disabled: false,
-  color: specs.COLOR_PRIMARY,
+  color: theme.COLOR_WHITE,
   full: false,
   icon: null,
   inverted: false,
   label: null,
-  size: specs.FONT_SIZE,
+  size: theme.FONT_SIZE,
   style: {},
   title: null,
+  opacity: 0.8,
+  rounded: false,
 };
 
 export default Button;
@@ -80,12 +85,12 @@ export default Button;
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: specs.BUTTON_BACKGROUND,
-    borderRadius: specs.BUTTON_RADIUS,
-    height: specs.BUTTON_HEIGHT,
+    backgroundColor: theme.BUTTON_BACKGROUND,
+    borderRadius: theme.BUTTON_RADIUS,
+    height: theme.BUTTON_HEIGHT,
     justifyContent: 'center',
-    padding: specs.BUTTON_PADDING,
-    width: specs.WIDTH * 0.5, // 50%
+    paddingVertical: theme.BUTTON_PADDING,
+    paddingHorizontal: theme.BUTTON_PADDING * 2,
   },
   basic: {
     backgroundColor: 'transparent',
@@ -93,21 +98,24 @@ const styles = StyleSheet.create({
     width: 'auto',
   },
   inverted: {
-    backgroundColor: specs.COLOR_WHITE,
-    borderColor: specs.COLOR_PRIMARY,
+    backgroundColor: theme.COLOR_WHITE,
+    borderColor: theme.COLOR_PRIMARY,
     borderWidth: 0.5,
   },
   border: {
-    borderColor: specs.COLOR_PRIMARY,
+    borderColor: theme.COLOR_PRIMARY,
     borderWidth: 0.5,
   },
   disabled: {
-    backgroundColor: specs.BUTTON_DISABLED,
+    backgroundColor: theme.BUTTON_DISABLED,
   },
   full: {
-    width: specs.WIDTH * 0.8, // 80%
+    width: theme.WIDTH * 0.8, // 80%
+  },
+  rounded: {
+    borderRadius: theme.BUTTON_HEIGHT / 2,
   },
   basicText: {
-    color: specs.COLOR_PRIMARY,
+    color: theme.COLOR_PRIMARY,
   },
 });
