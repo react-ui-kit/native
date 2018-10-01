@@ -1,14 +1,13 @@
-import React from 'react'
-import { Text, StyleSheet } from 'react-native'
-import Dropdown from 'react-native-modal-dropdown'
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
+// eslint-disable-next-line
+import Dropdown from 'react-native-modal-dropdown';
 
-import * as specs from '../../constants'
+import * as specs from '../../utils/constants';
 
 class Select extends React.PureComponent {
   render() {
-    const {
-      style, textStyle, dropdownStyle, dropdownTextStyle,
-    } = this.props
+    const { style, textStyle, dropdownStyle, dropdownTextStyle } = this.props;
     return (
       <Dropdown
         {...this.props}
@@ -17,7 +16,7 @@ class Select extends React.PureComponent {
         dropdownStyle={[styles.dropdown, dropdownStyle]}
         dropdownTextStyle={[styles.dropdownText, dropdownTextStyle]}
       />
-    )
+    );
   }
 }
 
@@ -26,16 +25,16 @@ Select.propTypes = {
   dropdownTextStyle: Text.propTypes.style,
   style: Text.propTypes.style,
   textStyle: Text.propTypes.style,
-}
+};
 
 Select.defaultProps = {
   dropdownStyle: {},
   dropdownTextStyle: {},
   style: {},
   textStyle: {},
-}
+};
 
-export default Select
+export default Select;
 
 const styles = StyleSheet.create({
   select: {
@@ -47,7 +46,6 @@ const styles = StyleSheet.create({
     width: specs.WIDTH * 0.8, // 80%
   },
   dropdown: {
-    height: 'auto',
     marginTop: specs.MARGIN,
     width: specs.WIDTH * 0.8,
   },
@@ -66,4 +64,4 @@ const styles = StyleSheet.create({
     paddingRight: specs.PADDING,
     width: specs.WIDTH * 0.8,
   },
-})
+});

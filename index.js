@@ -8,4 +8,5 @@ export Block from './components/views/Block';
 export Container from './components/views/Container';
 export Text from './components/views/Text';
 
-export constants from './constants';
+export constants from './utils/constants';
+export Utils from './utils/';
