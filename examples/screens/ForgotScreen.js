@@ -12,7 +12,7 @@ export default class LoginScreen extends React.Component {
       <Block column flex center middle style={styles.forgot}>
         <Text size={18}>FORGOT PASSWORD</Text>
         <Input placeholder="Email" />
-        <Button full color="#FFF" title="RESET PASSWORD" style={{ marginTop: 7 }} />
+        <Button full rounded label="RESET PASSWORD" />
       </Block>
     );
   }

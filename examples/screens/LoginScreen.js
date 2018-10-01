@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Button, Block, Text, Input } from 'react-ui-kit-native';
+import { Block, Button, Input, Text } from 'react-ui-kit-native';
 
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
@@ -9,19 +8,17 @@ export default class LoginScreen extends React.Component {
 
   render() {
     return (
-      <Block column flex center middle style={styles.login}>
-        <Text size={18}>LOGIN SCREEN</Text>
+      <Block flex middle>
+        <Text title light color="#000">
+          LOGIN SCREEN
+        </Text>
+        <Text caption thin color="#000">
+          Please login to your account
+        </Text>
         <Input placeholder="Email" />
-        <Input secureTextEntry placeholder="Password" />
-        <Button full color="#FFF" title="SIGN IN" style={{ marginTop: 7 }} />
+        <Input password placeholder="Password" />
+        <Button full primary rounded label="SIGN IN" />
       </Block>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  login: {
-    paddingTop: 15,
-    backgroundColor: '#FFFFFF',
-  }
-});
