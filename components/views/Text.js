@@ -1,59 +1,74 @@
-import React from 'react';
+// font spacing inspiration
+// https://github.com/hectahertz/react-native-typography/blob/master/src/helpers/sanFranciscoSpacing.js
+
+// Typography component: https://github.com/hectahertz/react-native-typography
+
+import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 
-import * as specs from '../../utils/constants';
+const BASE_SIZE = 14;
+const LINE_HEIGHT = 24; // ~ BASE_SIZE * 1.714
+const COLOR_DEFAULT = '#808080';
 
-class TextBlock extends React.PureComponent {
+export default class Typography extends Component {
+  static defaultProps = {
+    h1: false,
+    h2: false,
+    h3: false,
+    h4: false,
+    h5: false,
+    title: false,
+    subtitle: false,
+    caption: false,
+    size: null,
+    height: null,
+    color: null,
+    thin: false,
+    bold: false,
+    light: false,
+    italic: false,
+    align: null,
+  }
+
   render() {
     const {
-      center,
+      style,
       children,
-      left,
-      right,
-      bold,
       h1,
       h2,
       h3,
       h4,
       h5,
+      title,
+      subtitle,
+      caption,
       size,
-      link,
-      primary,
-      secondary,
-      tertiary,
-      white,
-      black,
-      warning,
-      error,
-      info,
-      success,
-      style,
+      color,
+      thin,
+      bold,
+      light,
+      italic,
+      align,
       ...props
     } = this.props;
 
     const textStyles = [
-      styles.baseText,
-      center && styles.center,
-      left && styles.left,
-      right && styles.right,
-      bold && styles.bold,
+      styles.text,
       h1 && styles.h1,
       h2 && styles.h2,
       h3 && styles.h3,
       h4 && styles.h4,
       h5 && styles.h5,
-      link && styles.link,
-      primary && styles.primary,
-      secondary && styles.secondary,
-      tertiary && styles.tertiary,
-      white && styles.white,
-      black && styles.black,
-      warning && styles.warning,
-      error && styles.error,
-      info && styles.info,
-      success && styles.success,
+      title && styles.title,
+      subtitle && styles.subtitle,
+      caption && styles.caption,
       size && { fontSize: size },
+      color && { color },
+      thin && { fontWeight: '100' },
+      light && { fontWeight: '300' },
+      bold && { fontWeight: 'bold' },
+      italic && { fontStyle: 'italic' },
+      align && { textAlign: align },
       style,
     ];
 
@@ -65,120 +80,51 @@ class TextBlock extends React.PureComponent {
   }
 }
 
-TextBlock.propTypes = {
-  black: PropTypes.bool,
-  bold: PropTypes.bool,
-  center: PropTypes.bool,
-  error: PropTypes.bool,
-  h1: PropTypes.bool,
-  h2: PropTypes.bool,
-  h3: PropTypes.bool,
-  h4: PropTypes.bool,
-  h5: PropTypes.bool,
-  info: PropTypes.bool,
-  left: PropTypes.bool,
-  link: PropTypes.bool,
-  primary: PropTypes.bool,
-  right: PropTypes.bool,
-  secondary: PropTypes.bool,
-  size: PropTypes.number,
-  style: Text.propTypes.style,
-  success: PropTypes.bool,
-  tertiary: PropTypes.bool,
-  warning: PropTypes.bool,
-  white: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-};
-
-TextBlock.defaultProps = {
-  black: false,
-  bold: false,
-  center: false,
-  error: false,
-  h1: false,
-  h2: false,
-  h3: false,
-  h4: false,
-  h5: false,
-  info: false,
-  left: false,
-  link: false,
-  primary: false,
-  right: false,
-  secondary: false,
-  size: specs.FONT_SIZE,
-  style: {},
-  success: false,
-  tertiary: false,
-  warning: false,
-  white: false,
-  children: null,
-};
-
-export default TextBlock;
-
 const styles = StyleSheet.create({
-  baseText: {
-    color: specs.TEXT_COLOR,
-    fontSize: specs.FONT_SIZE,
-  },
-  left: {
-    flex: 1,
-    textAlign: 'left',
-  },
-  right: {
-    flex: 1,
-    textAlign: 'right',
-  },
-  center: {
-    textAlign: 'center',
-  },
-  bold: {
-    fontWeight: 'bold',
+  text: {
+    fontSize: BASE_SIZE,
+    lineHeight: LINE_HEIGHT,
+    color: COLOR_DEFAULT,
+    letterSpacing: -0.154,
   },
   h1: {
-    fontSize: specs.FONT_SIZE_H1,
+    fontSize: BASE_SIZE * 8, // 112
+    lineHeight: LINE_HEIGHT * 5.333, // ~128,
+    letterSpacing: 0,
   },
   h2: {
-    fontSize: specs.FONT_SIZE_H2,
+    fontSize: BASE_SIZE * 4, // 56
+    lineHeight: 64,
+    letterSpacing: 0.273438,
   },
   h3: {
-    fontSize: specs.FONT_SIZE_H3,
+    fontSize: BASE_SIZE * 3.214, // ~45
+    lineHeight: 52,
+    letterSpacing: 0.351562,
   },
   h4: {
-    fontSize: specs.FONT_SIZE_H4,
+    fontSize: BASE_SIZE * 2.428, // ~34
+    lineHeight: 40,
+    letterSpacing: 0.381836,
   },
   h5: {
-    fontSize: specs.FONT_SIZE_H5,
+    fontSize: BASE_SIZE * 1.714, // ~24
+    lineHeight: 32,
+    letterSpacing: 0.351562,
   },
-  primary: {
-    color: specs.COLOR_PRIMARY,
+  title: {
+    fontSize: BASE_SIZE * 1.428, // ~20
+    lineHeight: 28,
+    letterSpacing: 0.361328,
   },
-  secondary: {
-    color: specs.COLOR_SECONDARY,
+  subtitle: {
+    fontSize: BASE_SIZE * 1.142, // 16
+    lineHeight: 24,
+    letterSpacing: 0.361328,
   },
-  tertiary: {
-    color: specs.COLOR_TERTIARY,
-  },
-  link: {
-    color: specs.LINK_COLOR,
-  },
-  white: {
-    color: specs.COLOR_WHITE,
-  },
-  black: {
-    color: specs.COLOR_BLACK,
-  },
-  warning: {
-    color: specs.COLOR_WARNING,
-  },
-  error: {
-    color: specs.COLOR_ERROR,
-  },
-  info: {
-    color: specs.COLOR_INFO,
-  },
-  success: {
-    color: specs.COLOR_SUCCESS,
-  },
+  caption: {
+    fontSize: BASE_SIZE * 0.857, // 12
+    lineHeight: 16,
+    letterSpacing: 0.361328,
+  }
 });

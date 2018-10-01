@@ -1,16 +1,19 @@
 {
   "name": "react-ui-kit-native",
-<<<<<<< HEAD
-  "version": "0.0.6",
-=======
-  "version": "0.0.14",
->>>>>>> 8b932020c6ca4722c05082656bdcdfc80b9ff6c1
+  "version": "0.0.16",
   "description": "React Native components based on React UI Kit",
   "homepage": "https://native.react-ui-kit.com",
   "main": "index.js",
+  "jest": {
+    "preset": "jest-expo"
+  },
   "scripts": {
+    "start": "expo start ./examples/",
+    "android": "expo start --android ./examples/",
+    "ios": "expo start --ios ./examples/",
+    "eject": "expo eject",
     "lint": "eslint components/** utils/**",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "repository": {
     "type": "git",
@@ -28,11 +31,16 @@
     "url": "https://github.com/react-ui-kit/native/issues"
   },
   "dependencies": {
-    "react-native-modal-dropdown": "^0.6.2"
+    "react-native-modal-dropdown": "^0.6.2",
+    "expo": "29.0.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-navigation": "^2.9.3"
   },
   "devDependencies": {
     "eslint": "^5.2.0",
     "eslint-config-universe": "^1.0.7",
+    "jest-expo": "29.0.0",
     "prettier": "^1.14.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

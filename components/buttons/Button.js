@@ -1,113 +1,109 @@
-import React from 'react';
-// eslint-disable-next-line
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { ActivityIndicator, Dimensions, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Icon } from 'expo'
 
-import * as specs from '../../utils/constants';
+const { width } = Dimensions.get('window')
 
-class Button extends React.Component {
-  renderContent = () => {
-    const { color, label, title, basic, inverted, size, bold, icon, textStyle } = this.props;
-    const text = label || title || null;
-    const textStyles = [
-      basic && styles.basicText,
-      bold && { fontWeight: 'bold' },
-      inverted && styles.basicText,
-      textStyle && { ...textStyle },
-      color ? { color } : { color: specs.COLOR_WHITE },
-      size ? { fontSize: size } : { fontSize: specs.BUTTON_FONT_SIZE },
-    ];
+// let's define some colors
+const BASE_SIZE = 14;
+const COLOR_TEXT = `#FFFFFF`;
+const COLOR_DEFAULT = `#45547e`;
+const COLOR_PRIMARY = `#7CB527`;
+const COLOR_SECONDARY = `#FF3D57`;
+const COLOR_TERTIARY = `#7857A9`;
 
-    if (icon && !text) return icon;
-
-    return <Text style={textStyles}>{text}</Text>;
-  };
+export default class Button extends Component {
+  // default props for all inline conditions
+  static defaultProps = {
+    opacity: 0.8,
+    color: COLOR_TEXT,
+    primary: false,
+    secondary: false,
+    tertiary: false,
+    full: false,
+    rounded: false,
+    basic: false,
+    loading: false,
+    size: BASE_SIZE,
+  }
 
   render() {
-    const { disabled, basic, inverted, border, full, style, ...props } = this.props;
+    const {
+      label,
+      opacity,
+      color,
+      primary,
+      secondary,
+      tertiary,
+      full,
+      rounded,
+      basic,
+      size,
+      loading,
+      icon,
+      family,
+      style,
+      ...props
+    } = this.props;
 
-    const buttonStyle = [
+    const buttonStyles = [
       styles.button,
-      basic && styles.basic,
-      inverted && styles.inverted,
-      border && styles.border,
+      primary && styles.primary,
+      secondary && styles.secondary,
+      tertiary && styles.tertiary,
       full && styles.full,
-      disabled && styles.disabled,
+      rounded && styles.rounded,
+      basic && styles.basic,
       style,
     ];
 
+    const textStyles = [size && { fontSize: size }, basic && { color: COLOR_DEFAULT }, { color }];
+
+    const { [family]: IconFamily } = Icon;
+    const iconContent = icon && IconFamily ? (
+      <IconFamily name={icon} size={size} color={basic ? COLOR_DEFAULT : color}>
+        {label && ` ${label}`}
+      </IconFamily>
+    ) : null;
+    const buttonContent = <Text style={textStyles}>{iconContent || label}</Text>;
+    const loadingContent = <ActivityIndicator size="small" color={COLOR_TEXT} />;
+
     return (
-      <TouchableOpacity {...props} disabled={disabled} style={buttonStyle}>
-        {this.renderContent()}
+      <TouchableOpacity {...props} activeOpacity={opacity} style={buttonStyles} disabled={loading}>
+        {loading ? loadingContent : buttonContent}
       </TouchableOpacity>
     );
   }
 }
 
-Button.propTypes = {
-  basic: PropTypes.bool,
-  bold: PropTypes.bool,
-  border: PropTypes.bool,
-  disabled: PropTypes.bool,
-  color: PropTypes.string,
-  full: PropTypes.bool,
-  icon: PropTypes.bool,
-  inverted: PropTypes.bool,
-  label: PropTypes.string,
-  size: PropTypes.number,
-  style: View.propTypes.style,
-  textStyle: Text.propTypes.style,
-  title: PropTypes.string,
-};
-
-Button.defaultProps = {
-  basic: false,
-  bold: false,
-  border: false,
-  disabled: false,
-  color: specs.COLOR_PRIMARY,
-  full: false,
-  icon: null,
-  inverted: false,
-  label: null,
-  size: specs.FONT_SIZE,
-  style: {},
-  title: null,
-};
-
-export default Button;
-
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: specs.BUTTON_BACKGROUND,
-    borderRadius: specs.BUTTON_RADIUS,
-    height: specs.BUTTON_HEIGHT,
     justifyContent: 'center',
-    padding: specs.BUTTON_PADDING,
-    width: specs.WIDTH * 0.5, // 50%
+    // let's make it fancy :)
+    backgroundColor: COLOR_DEFAULT,
+    paddingHorizontal: BASE_SIZE * 2,
+    paddingVertical: BASE_SIZE * 0.8,
+    borderRadius: BASE_SIZE * 0.4,
   },
-  basic: {
-    backgroundColor: 'transparent',
-    padding: 0,
-    width: 'auto',
+  primary: {
+    backgroundColor: COLOR_PRIMARY,
   },
-  inverted: {
-    backgroundColor: specs.COLOR_WHITE,
-    borderColor: specs.COLOR_PRIMARY,
-    borderWidth: 0.5,
+  secondary: {
+    backgroundColor: COLOR_SECONDARY,
   },
-  border: {
-    borderColor: specs.COLOR_PRIMARY,
-    borderWidth: 0.5,
-  },
-  disabled: {
-    backgroundColor: specs.BUTTON_DISABLED,
+  tertiary: {
+    backgroundColor: COLOR_TERTIARY,
   },
   full: {
-    width: specs.WIDTH * 0.8, // 80%
+    width: width * 0.8, // 80% of the screen/window
   },
-  basicText: {
-    color: specs.COLOR_PRIMARY,
+  rounded: {
+    borderRadius: BASE_SIZE * 2,
   },
-});
+  basic: {
+    backgroundColor: COLOR_TEXT,
+    borderColor: COLOR_DEFAULT,
+    borderWidth: 0.6,
+  }
+})

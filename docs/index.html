@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>react-ui-kit-native - React Native components based on React UI Kit</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="React Native components based on React UI Kit">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+  .sidebar {
+    width: 200px;
+  }
+  .sidebar>h1 {
+    background: url(https://react-ui-kit.com/assets/img/react-ui-kit-logo.svg) no-repeat center;
+    background-size: 120px;
+    text-indent: -9999px;
+    overflow: hidden;
+    height: 100px;
+  }
+  ol {
+    counter-reset: section;
+    list-style-type: none;
+  }
+  ol li::before {
+    counter-increment: section;
+    content: counter(section);
+    background-color: var(--theme-color);
+    border-radius: 50%;
+    color: #FFFFFF;
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: -26px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'react-ui-kit-native',
+      repo: 'https://github.com/react-ui-kit/native',
+      themeColor: '#87AF4A',
+      maxLevel: 5,
+      search: {
+        noData: {
+          '/': 'No results!'
+        },
+        paths: 'auto',
+        placeholder: {
+          '/': 'Search'
+        }
+      },
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+</body>
+</html>

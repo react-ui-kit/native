@@ -1,1 +1,5 @@
 CNAME
+/examples
+/docs
+yarn.lock
+.expo
