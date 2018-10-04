@@ -32,9 +32,6 @@
   },
   "dependencies": {
     "react-native-modal-dropdown": "^0.6.2",
-    "expo": "29.0.0",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-navigation": "^2.9.3"
   },
   "devDependencies": {
@@ -44,11 +41,13 @@
     "prettier": "^1.14.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
-    "react-native": "^0.56.0"
+    "react-native": "^0.56.0",
+    "react-native-vector-icons": "^6.0.0"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-vector-icons": "*"
   },
   "eslintConfig": {
     "extends": "universe/native"

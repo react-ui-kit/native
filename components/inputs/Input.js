@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
 
-import { Icon } from 'expo';
+import Icon from '../views/Icon'
 
 const { width } = Dimensions.get('window');
 

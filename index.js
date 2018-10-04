@@ -7,6 +7,7 @@ export Select from './components/inputs/Select';
 export Block from './components/views/Block';
 export Container from './components/views/Container';
 export Text from './components/views/Text';
+export Icon from './components/views/Icon';
 
 export constants from './utils/constants';
 export Utils from './utils/';
