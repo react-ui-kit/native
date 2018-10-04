@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ActivityIndicator, Dimensions, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { Icon } from 'expo'
+import Icon from '../views/Icon'
 
 const { width } = Dimensions.get('window')
 
