@@ -10,6 +10,7 @@ Support: [contact@react-ui-kit.com](mailto:contact@react-ui-kit.com)
 ### **Setup**
 #### Install & usage
 1. Install local module with react-ui-kit-native (it will also download all required dependencies)
+
 ```cmd
 npm install react-ui-kit-native --save
 ```
@@ -122,7 +123,7 @@ For more properties visit [Text props](https://facebook.github.io/react-native/d
 A list of example screens based on the above components:
 #### Login
 
-![Login Screen](/images/native_login.jpg "Login Screen")
+![Login Screen](https://raw.githubusercontent.com/react-ui-kit/native/master/docs/images/native_login.jpg "Login Screen")
 
 ```javascript
 import React from 'react';
@@ -148,7 +149,7 @@ export default class LoginScreen extends React.Component {
 ```
 
 #### Forgot
-![Forgot Screen](/images/native_forgot.jpg "Forgot Screen")
+![Forgot Screen](https://raw.githubusercontent.com/react-ui-kit/native/master/docs/images/native_forgot.jpg "Forgot Screen")
 
 ```javascript
 import React from 'react';
@@ -174,7 +175,7 @@ export default class LoginScreen extends React.Component {
 ```
 
 #### Register
-![Register Screen](/images/native_register.jpg "Register Screen")
+![Register Screen](https://raw.githubusercontent.com/react-ui-kit/native/master/docs/images/native_register.jpg "Register Screen")
 
 ```javascript
 import React from 'react';
@@ -212,7 +213,7 @@ export default class RegisterScreen extends React.Component {
 ```
 
 #### Profile
-![Profile Screen](/images/native_profile.jpg "Profile Screen")
+![Profile Screen](https://raw.githubusercontent.com/react-ui-kit/native/master/docs/images/native_profile.jpg "Profile Screen")
 
 ```javascript
 import React from 'react';

@@ -13,7 +13,8 @@
     "ios": "expo start --ios ./examples/",
     "eject": "expo eject",
     "lint": "eslint components/** utils/**",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
+    "docs": "docsify serve ./docs"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "react-navigation": "^2.9.3"
   },
   "devDependencies": {
+    "docsify": "^4.7.1",
     "eslint": "^5.2.0",
     "eslint-config-universe": "^1.0.7",
     "jest-expo": "29.0.0",

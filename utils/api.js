@@ -1,25 +1,13 @@
 // API using fetch to communicate with remote servers
-class Api {
-  constructor(baseURL, baseHeaders) {
-    this.url = baseURL;
+class API {
+  constructor(url, headers) {
+    this.url = url;
     this.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      ...baseHeaders,
+      ...headers,
     };
     this.response = undefined;
-  }
-
-  get url() {
-    return this.name;
-  }
-
-  get headers() {
-    return this.headers;
-  }
-
-  get response() {
-    return this.response;
   }
 
   authorization(tokens) {
@@ -31,10 +19,6 @@ class Api {
     }
   }
 
-  body(obj) {
-    return JSON.stringify(obj);
-  }
-
   get(url, headers) {
     const fetchUrl = `${this.url}${url}`;
 
@@ -44,8 +28,8 @@ class Api {
     // eslint-disable-next-line
     return fetch(fetchUrl, {
       method: 'GET',
-      headers: this.headers(),
-    });
+      headers: this.headers,
+    }).then(response => response.json());
   }
 
   post(url, data, headers) {
@@ -57,11 +41,38 @@ class Api {
     // eslint-disable-next-line
     return fetch(fetchUrl, {
       method: 'POST',
-      headers: this.headers(),
-      body: this.body(data),
-    });
+      headers: this.headers,
+      body: JSON.stringify(data),
+    }).then(response => response.json());
   }
-  // TO DO other methods
 }
 
-export default Api;
+export default API;
+
+/** 
+// usage example using remote service https://reqres.in/
+
+const apiUrl = `https://reqres.in/api`;
+const apiInstance = new API(apiUrl);
+
+const login = payload => apiInstance.post(`/login`, payload);
+
+const credentials = {
+  email: 'peter@klaven',
+  password: 'cityslicka',
+};
+
+login(credentials)
+  .then(response => {
+    apiInstance.authorization(response.token); // setting the header Authorization
+    return response.token;
+  })
+  .catch(err => {
+    const code = err.response ? err.response.status : 500;
+    const message = err.response ? err.response.error : err;
+    return {
+      code,
+      message,
+    };
+  });
+*/
