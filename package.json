@@ -1,6 +1,6 @@
 {
   "name": "react-ui-kit-native",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "React Native components based on React UI Kit",
   "homepage": "https://native.react-ui-kit.com",
   "main": "index.js",
