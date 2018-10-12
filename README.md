@@ -44,10 +44,11 @@ List of available components:
 :heavy_check_mark: | view | [`Block`](?id=Block) | react-native `View` component with predefined styles & props
 :heavy_check_mark: | view | [`Container`](?id=Container) | react-native `View` component with predefined styles & props
 :heavy_check_mark: | view | [`Text`](?id=Text) | react-native `Text` component with predefined styles & props
-:soon: | view | `Tabs` | react-native `TabBarIOS` component with predefined styles & props
+:heavy_check_mark: | view | [`Icon`](?id=Icon)  | [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons) module with predefined props
+:soon: | view | `Avatar` | react-native `Image` component with predefined styles & props
 :soon: | view | `Badge` | react-native `View` component with predefined styles & props
 :soon: | view | `Label` | react-native `View` component with predefined styles & props
-:soon: | view | `Icon` | [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons) module with predefined styles & props
+:soon: | view | `Tabs` | react-native `TabBarIOS` component with predefined styles & props
 :soon: | view | `List` | react-native `ScrollView` component with predefined styles & props
 :soon: | view | `Menu` | react-native `ScrollView` component with predefined styles & props
 
@@ -88,7 +89,7 @@ color | string | `COLOR_DEFAULT` | Specifies a text color
 placeHolderColor | string | `COLOR_PLACEHOLDER` | Specifies a `placeholderTextColor`
 bgColor | string | `COLOR_BACKGROUND` | Specifies a `backgroundColor` color
 rounded | bool | `false` | Determines whether the `styles.rounded` should be included
-type |  | `default` | One of `'default', 'email-address', 'numeric', 'phone-pad', 'number-pad', 'decimal-pad'` for `keyboardType`
+type | string | `default` | One of `'default', 'email-address', 'numeric', 'phone-pad', 'number-pad', 'decimal-pad'` for `keyboardType`
 help | string | null | Specifies a `string` or `node` for the text positioned between `label` and `input`
 left | bool | `true` | Positioning the icon on the `left`
 right | bool | `false` | Positioning the icon on the `right`
@@ -101,23 +102,33 @@ For more properties visit [TextInput props](https://facebook.github.io/react-nat
 #### Text
 **PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
 :--- | :--- | :--- | :---
-h1 | bool | false | Determines whether the `styles.h1` should be included
-h2 | bool | false | Determines whether the `styles.h2` should be included
-h3 | bool | false | Determines whether the `styles.h3` should be included
-h4 | bool | false | Determines whether the `styles.h4` should be included
-h5 | bool | false | Determines whether the `styles.h5` should be included
-title | bool | false | Determines whether the `styles.title` should be included
-subtitle | bool | false | Determines whether the `styles.subtitle` should be included
-caption | bool | false | Determines whether the `styles.caption` should be included
-size | bool | null | Specifies a `fontSize` size
-color | string | `COLOR_DEFAULT` | Specifies a text color
-thin | bool | false | Set the fontWeight to `100`
-bold | bool | false | Set the fontWeight to `300`
-light | bool | false | Set the fontWeight to `bold`
-italic | bool | false | Set the fontStyle to `italic`
+h1 | bool | false | `styles.h1` with `fontSize` size of `112` 
+h2 | bool | false | `styles.h2` with `fontSize` size of `56` 
+h3 | bool | false | `styles.h3` with `fontSize` size of `~45` 
+h4 | bool | false | `styles.h4` with `fontSize` size of `~34` 
+h5 | bool | false | `styles.h5` with `fontSize` size of `~24` 
+title | bool | false | `styles.title` with `fontSize` size of `~20` 
+subtitle | bool | false | `styles.subtitle` with `fontSize` size of `16` 
+caption | bool | false | `styles.caption` with `fontSize` size of `12` 
+size | number | `BASE_SIZE` | Specifies a `fontSize` size of `14`
+color | string | `COLOR_DEFAULT` | Specifies a text color `#808080`
+thin | bool | false | Set the `fontWeight` to `100`
+bold | bool | false | Set the `fontWeight` to `300`
+light | bool | false | Set the `fontWeight` to `bold`
+italic | bool | false | Set the `fontStyle` to `italic`
 align | bool | null | Specifies a `textAlign`
 
 For more properties visit [Text props](https://facebook.github.io/react-native/docs/text.html#props)
+
+#### Icon
+**PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
+:--- | :--- | :--- | :---
+color | string | `COLOR_DEFAULT` | Specifies an Icon color `COLOR_DEFAULT #808080`
+size | number | `BASE_SIZE` | Specifies a `fontSize` size, `BASE_SIZE 16px`
+name | string | null` | What icon to show, for more example see [Icon Explorer](https://oblador.github.io/react-native-vector-icons/)
+family | string | null` | One of the sets from [Bundled Icon Sets](https://github.com/oblador/react-native-vector-icons#bundled-icon-sets)
+
+For more properties visit [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 
 ### **Examples**
 A list of example screens based on the above components:
