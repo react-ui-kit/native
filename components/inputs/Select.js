@@ -36,7 +36,7 @@ Select.defaultProps = {
 
 export default Select;
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   select: {
     backgroundColor: specs.INPUT_BACKGROUND,
     borderRadius: specs.INPUT_RADIUS,

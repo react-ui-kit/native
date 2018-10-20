@@ -74,7 +74,7 @@ export default class Block extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   block: {
     flexDirection: 'column',
   },

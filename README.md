@@ -45,7 +45,7 @@ List of available components:
 :heavy_check_mark: | view | [`Container`](?id=Container) | react-native `View` component with predefined styles & props
 :heavy_check_mark: | view | [`Text`](?id=Text) | react-native `Text` component with predefined styles & props
 :heavy_check_mark: | view | [`Icon`](?id=Icon)  | [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons) module with predefined props
-:soon: | view | `Avatar` | react-native `Image` component with predefined styles & props
+:heavy_check_mark: | view | [`Image`](?id=Image) | react-native `Image` component with predefined styles & props
 :soon: | view | `Badge` | react-native `View` component with predefined styles & props
 :soon: | view | `Label` | react-native `View` component with predefined styles & props
 :soon: | view | `Tabs` | react-native `TabBarIOS` component with predefined styles & props
@@ -55,21 +55,21 @@ List of available components:
 #### Button
 **PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
 :--- | :--- | :--- | :---
-color | string | `COLOR_TEXT` | Specifies a text color
-size | number | `BASE_SIZE` | Specifies a `fontSize` size
+color | string | `#FFFFFF` | Specifies a text color
+size | number | `16` | Specifies a `fontSize` size
 label | string | null | Specifies a string for the button text 
 icon | bool | null | Specifies an icon name - check [Icon](?id=icon) component
 family | bool | null | Specifies an icon family - check [Icon](?id=icon) component
 loading | bool | `false` | Disable touch/press events and render `ActivityIndicator`
 full | bool | `false` | Set the width of the component to 80% from the total width of the screen
 opacity | number | `0.8` | Determines what the `activeOpacity` of the Button should be when touch is active
-basic | bool | `false` | Determines whether the `styles.basic` should be included
+basic | bool | `false` | Include `styles.basic` with _backgroundColor: #FFFFFF_, _borderColor: #45547e_ <span style="color: #45547e">█</span>
 bold | bool | `false` | Determines whether the `styles.bold` should be included
 border | bool | `false` | Determines whether the `styles.border` should be included 
 rounded | bool | `false` | Determines whether the `styles.basic` should be included
-primary | bool | `false` | Determines whether the `styles.primary` should be included
-secondary | bool | `false` | Determines whether the `styles.secondary` should be included
-tertiary | bool | `false` | Determines whether the `styles.tertiary` should be included
+primary | bool | `false` | Include `styles.primary` with _backgroundColor: #7CB527_ <span style="color: #7CB527"> █</span>
+secondary | bool | `false` | Include `styles.secondary` with _backgroundColor: #FF3D57_ <span style="color: #FF3D57"> █</span>
+tertiary | bool | `false` | Include `styles.tertiary` with _backgroundColor: #7857A9_ <span style="color: #7857A9"> █</span>
 style | View style | `{}` | Add `style` properties for better customization
 
 For more properties visit [TouchableOpacity props](https://facebook.github.io/react-native/docs/touchableopacity#props)
@@ -77,7 +77,7 @@ For more properties visit [TouchableOpacity props](https://facebook.github.io/re
 #### Link
 **PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
 :--- | :--- | :--- | :---
-color | string | `theme.LINK_COLOR` | Specifies a text color
+color | string | `color: #323642` <span style="color: #323642"> █</span> | Specifies a text color
 href | string | null | A link (web URL, email, contact etc.)
 onPress | func | `() => {}` | Called when the touch is released 
 style | View style | `{}` | Add `style` properties for better customization
@@ -85,9 +85,9 @@ style | View style | `{}` | Add `style` properties for better customization
 #### Input
 **PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
 :--- | :--- | :--- | :---
-color | string | `COLOR_DEFAULT` | Specifies a text color
-placeHolderColor | string | `COLOR_PLACEHOLDER` | Specifies a `placeholderTextColor`
-bgColor | string | `COLOR_BACKGROUND` | Specifies a `backgroundColor` color
+color | string | `#293042` <span style="color: #293042"> █</span> | Specifies a text color
+placeHolderColor | string | `#5E6D95` <span style="color: #5E6D95"> █</span> | Specifies a `placeholderTextColor`
+bgColor | string | `#FFFFFF` | Specifies a `backgroundColor` color
 rounded | bool | `false` | Determines whether the `styles.rounded` should be included
 type | string | `default` | One of `'default', 'email-address', 'numeric', 'phone-pad', 'number-pad', 'decimal-pad'` for `keyboardType`
 help | string | null | Specifies a `string` or `node` for the text positioned between `label` and `input`
@@ -110,8 +110,8 @@ h5 | bool | false | `styles.h5` with `fontSize` size of `~24`
 title | bool | false | `styles.title` with `fontSize` size of `~20` 
 subtitle | bool | false | `styles.subtitle` with `fontSize` size of `16` 
 caption | bool | false | `styles.caption` with `fontSize` size of `12` 
-size | number | `BASE_SIZE` | Specifies a `fontSize` size of `14`
-color | string | `COLOR_DEFAULT` | Specifies a text color `#808080`
+size | number | `14` | Specifies a `fontSize` size of `14`
+color | string | `#808080` <span style="color: #808080"> █</span> | Specifies a text color `#808080`
 thin | bool | false | Set the `fontWeight` to `100`
 bold | bool | false | Set the `fontWeight` to `300`
 light | bool | false | Set the `fontWeight` to `bold`
@@ -123,12 +123,23 @@ For more properties visit [Text props](https://facebook.github.io/react-native/d
 #### Icon
 **PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
 :--- | :--- | :--- | :---
-color | string | `COLOR_DEFAULT` | Specifies an Icon color `COLOR_DEFAULT #808080`
-size | number | `BASE_SIZE` | Specifies a `fontSize` size, `BASE_SIZE 16px`
+color | string | `#808080` <span style="color: #808080"> █</span> | Specifies an Icon color `COLOR_DEFAULT #808080`
+size | number | `16` | Specifies a `fontSize` size, `BASE_SIZE 16px`
 name | string | null` | What icon to show, for more example see [Icon Explorer](https://oblador.github.io/react-native-vector-icons/)
 family | string | null` | One of the sets from [Bundled Icon Sets](https://github.com/oblador/react-native-vector-icons#bundled-icon-sets)
 
 For more properties visit [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+
+#### Image
+**PROP** | **TYPE** | **DEFAULT** | **DESCRIPTION**
+:--- | :--- | :--- | :---
+avatar | string | `false` | Based on image width & height will add `borderRadius` with value of minimum between WIDTH & HEIGHT
+width | number | null | Add `WIDTH` to image style
+height | number | null | Add `HEIGHT` to image style
+size | number | null | **width** & **height** changed using: `tiny` divided by _2_, `small` divided by _1.25_ or `large` multiplied by _2_
+source | string | null | [Image source](https://facebook.github.io/react-native/docs/image#source) (either a remote URL or a local file resource).
+
+For more properties visit [Image props](https://facebook.github.io/react-native/docs/image#props)
 
 ### **Examples**
 A list of example screens based on the above components:
@@ -272,8 +283,9 @@ const styles = StyleSheet.create({
 
 ```
 
-### **Work in Progress**
-- [ ] export component styles as `componentStyle` for easy import
+### **Work in progress**
+- [x] export components style as `styles` for easy import
+- [ ] create `theme HoC` with default **theme.js**
 
 ### **Contribution**
 Have an idea for a new component or Screen? Just contact us at contact@react-ui-kit.com and will add it to our list.
