@@ -76,11 +76,10 @@ export default class Button extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    // let's make it fancy :)
     backgroundColor: COLOR_DEFAULT,
     paddingHorizontal: BASE_SIZE * 2,
     paddingVertical: BASE_SIZE * 0.8,

@@ -106,7 +106,7 @@ export default class Input extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   input: {
     backgroundColor: COLOR_BACKGROUND,
     borderRadius: BASE_SIZE * 0.4,

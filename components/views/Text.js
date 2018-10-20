@@ -80,7 +80,7 @@ export default class Typography extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   text: {
     fontSize: BASE_SIZE,
     lineHeight: LINE_HEIGHT,

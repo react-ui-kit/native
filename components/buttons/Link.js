@@ -39,7 +39,7 @@ Link.defaultProps = {
 
 export default Link;
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   link: {
     height: specs.BUTTON_HEIGHT,
     paddingVertical: specs.BUTTON_PADDING,
