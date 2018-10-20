@@ -8,8 +8,9 @@ import Block from './components/views/Block';
 import Container from './components/views/Container';
 import Text from './components/views/Text';
 import Icon from './components/views/Icon';
+import Image from './components/views/Image';
 
 import constants from './utils/constants';
 import Utils from './utils/';
 
-export { Button, Link, Input, Select, Block, Container, Text, Icon, constants, Utils };
+export { Button, Link, Input, Select, Block, Container, Text, Icon, Image, constants, Utils };
