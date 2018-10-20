@@ -73,14 +73,13 @@ export default class Input extends Component {
     ];
 
     const labelContent = label && <Text style={styles.label}>{label}</Text>;
-    const { [family]: IconFamily } = Icon;
-    let iconContent = icon && IconFamily ? <IconFamily name={icon} color={color} size={BASE_SIZE * 1.25} /> : null;
+    let iconContent = icon && family ? <Icon name={icon} family={family} color={color} size={BASE_SIZE * 1.25} /> : null;
     const helpContent = help && <Text style={styles.help}>{help}</Text>;
 
     if (password) {
       iconContent = (
         <TouchableOpacity onPress={() => this.setState({ password: !this.state.password })}>
-          <Icon.FontAwesome name="eye-slash" color={color} size={BASE_SIZE * 1.25} />
+          <Icon name="eye-slash" family="FontAwesome" color={color} size={BASE_SIZE * 1.25} />
         </TouchableOpacity>
       );
     }
