@@ -12,5 +12,19 @@ import Image from './components/views/Image';
 
 import constants from './utils/constants';
 import Utils from './utils/';
+import theme from './theme';
 
-export { Button, Link, Input, Select, Block, Container, Text, Icon, Image, constants, Utils };
+export {
+  Button,
+  Link,
+  Input,
+  Select,
+  Block,
+  Container,
+  Text,
+  Icon,
+  Image,
+  Utils,
+  constants,
+  theme,
+};

@@ -46,8 +46,8 @@ List of available components:
 :heavy_check_mark: | view | [`Text`](?id=Text) | react-native `Text` component with predefined styles & props
 :heavy_check_mark: | view | [`Icon`](?id=Icon)  | [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons) module with predefined props
 :heavy_check_mark: | view | [`Image`](?id=Image) | react-native `Image` component with predefined styles & props
-:soon: | view | `Badge` | react-native `View` component with predefined styles & props
-:soon: | view | `Label` | react-native `View` component with predefined styles & props
+:construction: | view | `Badge` | react-native `Text` & `View` component with predefined styles & props
+:construction: | view | `Label` | react-native `Text` & `View` component with predefined styles & props
 :soon: | view | `Tabs` | react-native `TabBarIOS` component with predefined styles & props
 :soon: | view | `List` | react-native `ScrollView` component with predefined styles & props
 :soon: | view | `Menu` | react-native `ScrollView` component with predefined styles & props

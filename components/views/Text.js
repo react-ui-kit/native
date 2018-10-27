@@ -28,7 +28,7 @@ export default class Typography extends Component {
     light: false,
     italic: false,
     align: null,
-  }
+  };
 
   render() {
     const {
