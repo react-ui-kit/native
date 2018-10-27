@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { ActivityIndicator, Dimensions, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from '../views/Icon'
+import React, { Component } from 'react';
+import { ActivityIndicator, Dimensions, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from '../views/Icon';
 
-const { width } = Dimensions.get('window')
+const { width } = Dimensions.get('window');
 
 // let's define some colors
 const BASE_SIZE = 14;
@@ -25,7 +25,7 @@ export default class Button extends Component {
     basic: false,
     loading: false,
     size: BASE_SIZE,
-  }
+  };
 
   render() {
     const {
@@ -60,11 +60,12 @@ export default class Button extends Component {
     const textStyles = [size && { fontSize: size }, basic && { color: COLOR_DEFAULT }, { color }];
 
     const { [family]: IconFamily } = Icon;
-    const iconContent = icon && IconFamily ? (
-      <IconFamily name={icon} size={size} color={basic ? COLOR_DEFAULT : color}>
-        {label && ` ${label}`}
-      </IconFamily>
-    ) : null;
+    const iconContent =
+      icon && IconFamily ? (
+        <IconFamily name={icon} size={size} color={basic ? COLOR_DEFAULT : color}>
+          {label && ` ${label}`}
+        </IconFamily>
+      ) : null;
     const buttonContent = <Text style={textStyles}>{iconContent || label}</Text>;
     const loadingContent = <ActivityIndicator size="small" color={COLOR_TEXT} />;
 
@@ -104,5 +105,5 @@ export const styles = StyleSheet.create({
     backgroundColor: COLOR_TEXT,
     borderColor: COLOR_DEFAULT,
     borderWidth: 0.6,
-  }
-})
+  },
+});

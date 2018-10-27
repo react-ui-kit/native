@@ -126,5 +126,5 @@ export const styles = StyleSheet.create({
     fontSize: BASE_SIZE * 0.857, // 12
     lineHeight: 16,
     letterSpacing: 0.361328,
-  }
+  },
 });

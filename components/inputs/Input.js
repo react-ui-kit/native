@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
 
-import Icon from '../views/Icon'
+import Icon from '../views/Icon';
 
 const { width } = Dimensions.get('window');
 
@@ -73,7 +73,10 @@ export default class Input extends Component {
     ];
 
     const labelContent = label && <Text style={styles.label}>{label}</Text>;
-    let iconContent = icon && family ? <Icon name={icon} family={family} color={color} size={BASE_SIZE * 1.25} /> : null;
+    let iconContent =
+      icon && family ? (
+        <Icon name={icon} family={family} color={color} size={BASE_SIZE * 1.25} />
+      ) : null;
     const helpContent = help && <Text style={styles.help}>{help}</Text>;
 
     if (password) {

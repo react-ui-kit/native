@@ -22,7 +22,7 @@ export default class Block extends Component {
     height: false,
     width: false,
     shadowColor: false,
-  }
+  };
 
   render() {
     const {
